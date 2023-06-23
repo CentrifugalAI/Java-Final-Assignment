@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="48" tileheight="48" infinite="0" nextlayerid="9" nextobjectid="34">
+ <tileset firstgid="1" source="home.tsx"/>
+ <tileset firstgid="183" source="homeFloor.tsx"/>
+ <tileset firstgid="365" source="homeInterior.tsx"/>
+ <layer id="5" name="tileLayer" width="30" height="20" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJzt08dPlEEcBuBdG4go2HuiiA0SK5aDrp2DoGJJLCCC2LF3sQP23hUb9hZ75OTNmzf/Ix+ybLIqXmBOxjd5Mslvknnz5ZuJRP4nkShtaEs72tOBFFLpSBqdSKczXQL0ZpBJV7rRnR70pBe96UNf+tGfAQF6E7nPIAaTxRCyGcowhjOCkeQE7h3FaMYwlnGMJ48JTGQSkxkYif+XbwF6pzCVGNOYzgxmMovZzCGfXL7zI0DvXAooZB7zWUARC1nEYpY0zRqtjLa+dxnLWUExJY3nUsoqyihndZL0FvZWsIa1rGM9G9jIJirZzBa2so3tLav6JTvYyS52s4e97GM/B6jiIIc4zJEAvUc5xnGqqaGWE5zkFKc5w1nOcT5A7wUuconLXOEq17jODW5yi9vcoS5A713uReL36gEPqecRj3nCU57xnBe8DND7ite8ocLdfGt9x3s+8JFPfG7a/2JtCNCbSHk0fm7C0iTJ88pWvtff87UZqX+Zh0ws+qfqZmaxwN/7L+UndZNTIQ==
+  </data>
+ </layer>
+ <objectgroup id="8" name="ObjectLayer" locked="1">
+  <object id="23" name="barrier2" type="Barrier" x="432" y="96">
+   <polygon points="0,0 239,1 240,90 240,117 46,117 47,250 97,251 98,319 48,318 47,383 239,387 238,479 183,479 183,395 54,394 50,478 47,672 236,674 237,764 1,767"/>
+  </object>
+  <object id="24" name="barrier1" type="Barrier" x="721" y="94">
+   <polygon points="0,0 -1,124 43,124 42,93 59,94 59,22 176,22 176,95 191,95 192,237 201,239 204,266 225,266 227,240 248,240 254,253 278,253 281,241 384,240 385,289 215,289 193,336 193,336 94,336 96,381 96,386 -1,385 2,477 7,504 37,501 38,480 54,481 54,398 176,399 179,478 192,478 190,674 -3,675 0,770 237,769 238,307 431,306 428,147 238,147 237,2"/>
+  </object>
+  <object id="25" name="cabinet1" type="Cabinet" x="491" y="497">
+   <polygon points="0,0 118,0 120,108 -2,109"/>
+  </object>
+  <object id="26" name="cabinet2" type="Cabinet" x="776" y="494">
+   <polygon points="0,0 0,110 123,112 121,0"/>
+  </object>
+  <object id="27" name="barrier3" type="Barrier" x="769" y="216">
+   <polygon points="0,0 28,0 39,17 39,32 48,43 48,51 0,50"/>
+  </object>
+  <object id="28" name="barrier4" type="Barrier" x="738" y="292">
+   <polygon points="0,0 0,27 50,26 50,-2"/>
+  </object>
+  <object id="29" name="bed1" type="Bed" x="480" y="414">
+   <polygon points="0,0 93,0 94,50 41,49 41,65 1,64"/>
+  </object>
+  <object id="30" name="bed2" type="Bed" x="786" y="125">
+   <polygon points="0,0 104,-1 106,110 27,108 10,88 -4,88"/>
+  </object>
+ </objectgroup>
+</map>

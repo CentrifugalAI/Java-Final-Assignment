@@ -3,11 +3,17 @@ package com.rucjava.cyberpunk.ControllerModule;
 import com.rucjava.cyberpunk.DevelopUtils.LevelType;
 import com.rucjava.cyberpunk.DevelopUtils.Logger;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class MainController {
     EventQueue eventQueue;
 
+    EventHandler eventHandler;
+
     public MainController() {
         this.eventQueue = new EventQueue();
+        this.eventHandler = new EventHandler();
     }
 
     /** 每次调用 handleAllEvent 函数将会遍历并清空事件队列
@@ -17,7 +23,18 @@ public class MainController {
         while (!this.eventQueue.isEmpty()) {
             int eventID = initEventNumber - eventQueue.getEventNumber();
             Logger.log(this.getClass().getName(), "handle event " + eventID, LevelType.COMMON);
-
+            MyEvent event = eventQueue.popEvent();
+            String methodName = event.toString() + "_handler";
+            try {
+                Method method = this.eventHandler.getClass().getMethod(methodName, this.eventHandler.getClass());
+                method.invoke(this.eventHandler, event);    // 让 eventHandler 处理各项工作
+            } catch (NoSuchMethodException e1) {
+                Logger.log(this.getClass().getName(), "Throw NoSuchMethodException for nonexistent method name " + methodName, LevelType.ERROR);
+            } catch (IllegalAccessException e2) {
+                Logger.log(this.getClass().getName(), "Throw IllegalAccessException for nonexistent method name " + methodName, LevelType.ERROR);
+            } catch (InvocationTargetException e3) {
+                Logger.log(this.getClass().getName(), "Throw InvocationTargetException for nonexistent method name " + methodName, LevelType.ERROR);
+            }
         }
     }
 }
