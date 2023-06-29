@@ -1,6 +1,6 @@
 package com.rucjava.cyberpunk.ControllerModule;
 
-public enum EventType {
+public enum LocalEventType {
     KEY_A_END("KEY_A_END"),
     KEY_A_ON("KEY_A_ON"),
     KEY_A_BEGIN("KEY_A_BEGIN"),
@@ -16,15 +16,18 @@ public enum EventType {
     KEY_E_END("KEY_E_END"),
     KEY_E_ON("KEY_E_ON"),
     KEY_E_BEGIN("KEY_E_BEGIN"),
-    
     TRIGGER_BEGIN("TRIGGER_BEGIN"),
     TRIGGER_ON("TRIGGER_ON"),
-    TRIGGER_END("TRIGGER_END");
+    TRIGGER_END("TRIGGER_END"),
+    SLEEP("SLEEP"),
+    STUDY("STUDY"),
+    CHAT("CHAT")
+    ;
     
     
     private final String EventName;
 
-    private EventType(String EventName) {
+    private LocalEventType(String EventName) {
         this.EventName = EventName;
     }
 

@@ -62,19 +62,19 @@ public class Logger {
         else {
             try {
                 switch (levelType) {
-                    case ERROR -> {
+                    case ERROR : {
                         errorLoggerFileWriter.write(logInfo + "\n");
                         break;
                     }
-                    case COMMON -> {
+                    case COMMON : {
                         commonLoggerFileWriter.write(logInfo + "\n");
                         break;
                     }
-                    case WARNING -> {
+                    case WARNING : {
                         warningLoggerFileWriter.write(logInfo + "\n");
                         break;
                     }
-                    default -> { break; }
+                    default : { break; }
                 }
             } catch (IOException e) {
                 System.out.println("Logger: " + LevelType.ERROR.toString() + " -> logger file is not exist !!!");

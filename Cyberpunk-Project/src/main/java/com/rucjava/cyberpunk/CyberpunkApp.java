@@ -9,12 +9,16 @@ package com.rucjava.cyberpunk;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.core.math.FXGLMath;
+import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.rucjava.cyberpunk.ControllerModule.InputUtils.KeyInputAction;
 import com.rucjava.cyberpunk.ControllerModule.InputUtils.TriggerInputAction;
+import com.rucjava.cyberpunk.ControllerModule.MainController;
 import com.rucjava.cyberpunk.DevelopUtils.LevelType;
 import com.rucjava.cyberpunk.DevelopUtils.Logger;
 import com.rucjava.cyberpunk.DevelopUtils.OutputType;
+import com.rucjava.cyberpunk.Factories.FloorFactory;
+import com.rucjava.cyberpunk.Factories.InteriorFactory;
 import javafx.util.Duration;
 
 import java.util.Map;
@@ -24,9 +28,17 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class CyberpunkApp extends GameApplication {
 
+    private MainController mainController;
+
+    public CyberpunkApp() {
+        super();
+        this.mainController = new MainController();
+    }
+
     /** 游戏设置（全局的游戏设置如标题、版本、图标等）
      * @param settings
      */
+
     @Override
     protected void initSettings(GameSettings settings) {
         /** Logger initialize
@@ -46,10 +58,7 @@ public class CyberpunkApp extends GameApplication {
     @Override
     protected void initInput() {
         Logger.log(this.getClass().getName(), "call initInput", LevelType.COMMON);
-        KeyInputAction keyInputAction = new KeyInputAction();
-        keyInputAction.registerAllKeys();
-        TriggerInputAction triggerInputAction = new TriggerInputAction();
-        triggerInputAction.registerTrigger();
+        mainController.initInput(FXGL.getInput());
     }
 
     /** 游戏预先资源初始化
@@ -72,7 +81,8 @@ public class CyberpunkApp extends GameApplication {
     @Override
     protected void initGame() {
         Logger.log(this.getClass().getName(), "call initGame", LevelType.COMMON);
-
+        getGameWorld().addEntityFactory(new InteriorFactory());
+        getGameWorld().addEntityFactory(new FloorFactory());
     }
 
     /** 初始化绑定碰撞事件（对具有可碰撞的相关ENTITY进行事件绑定处理 ）

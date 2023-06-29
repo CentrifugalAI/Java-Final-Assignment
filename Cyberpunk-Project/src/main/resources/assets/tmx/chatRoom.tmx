@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="48" tileheight="48" infinite="0" nextlayerid="6" nextobjectid="71">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="48" tileheight="48" infinite="0" nextlayerid="6" nextobjectid="72">
  <tileset firstgid="1" source="chatRoom.tsx"/>
  <tileset firstgid="121" source="icecreamRoomFloor.tsx"/>
  <tileset firstgid="241" source="icecreamRoomInterior.tsx"/>
@@ -27,7 +27,7 @@
 0,0,0,229,230,230,230,230,230,230,230,230,233,234,234,236,237,237,237,237,237,237,237,237,240,0,0,0,0,0
 </data>
  </layer>
- <layer id="2" name="interiorLayer" width="30" height="20">
+ <layer id="2" name="interiorLayer" width="30" height="20" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -51,7 +51,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,114,115,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="5" name="objectLayer">
+ <objectgroup id="5" name="objectLayer" locked="1">
   <object id="1" type="Barrier" x="145.455" y="96.4593">
    <polygon points="0,0 44.4019,-1.5311 45.933,828.325 0,828.325"/>
   </object>
@@ -246,6 +246,9 @@
   </object>
   <object id="70" type="Desk" x="966.667" y="768">
    <polygon points="1.33333,2.66667 -1.33333,96 34.6667,94.6667 34.6666,-3.33333e-06"/>
+  </object>
+  <object id="71" type="Door" x="624" y="910.667">
+   <polygon points="0,0 0,48 93.3333,48 89.3333,0"/>
   </object>
  </objectgroup>
 </map>

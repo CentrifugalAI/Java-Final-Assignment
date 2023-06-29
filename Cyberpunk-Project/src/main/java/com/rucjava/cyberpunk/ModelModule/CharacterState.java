@@ -1,0 +1,7 @@
+package com.rucjava.cyberpunk.ModelModule;
+
+public enum CharacterState {
+    CHAT_STATE,
+    STUDY_STATE,
+
+}

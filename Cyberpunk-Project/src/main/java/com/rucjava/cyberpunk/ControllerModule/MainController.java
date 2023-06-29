@@ -1,5 +1,8 @@
 package com.rucjava.cyberpunk.ControllerModule;
 
+import com.almasb.fxgl.input.Input;
+import com.rucjava.cyberpunk.ControllerModule.InputUtils.KeyInputAction;
+import com.rucjava.cyberpunk.ControllerModule.InputUtils.TriggerInputAction;
 import com.rucjava.cyberpunk.DevelopUtils.LevelType;
 import com.rucjava.cyberpunk.DevelopUtils.Logger;
 
@@ -7,9 +10,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class MainController {
-    EventQueue eventQueue;
-
-    EventHandler eventHandler;
+    private EventQueue eventQueue;
+    private EventHandler eventHandler;
+    private KeyInputAction keyInputAction;
+    private TriggerInputAction triggerInputAction;
 
     public MainController() {
         this.eventQueue = new EventQueue();
@@ -23,7 +27,7 @@ public class MainController {
         while (!this.eventQueue.isEmpty()) {
             int eventID = initEventNumber - eventQueue.getEventNumber();
             Logger.log(this.getClass().getName(), "handle event " + eventID, LevelType.COMMON);
-            MyEvent event = eventQueue.popEvent();
+            BasicEvent event = eventQueue.popEvent();
             String methodName = event.toString() + "_handler";
             try {
                 Method method = this.eventHandler.getClass().getMethod(methodName, this.eventHandler.getClass());
@@ -36,5 +40,12 @@ public class MainController {
                 Logger.log(this.getClass().getName(), "Throw InvocationTargetException for nonexistent method name " + methodName, LevelType.ERROR);
             }
         }
+    }
+
+    public void initInput(Input input) {
+        keyInputAction = new KeyInputAction(eventQueue);
+        keyInputAction.registerAllKeys(input);
+        triggerInputAction = new TriggerInputAction(eventQueue);
+        triggerInputAction.registerTrigger(input);
     }
 }
